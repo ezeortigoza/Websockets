@@ -8,19 +8,19 @@
 		"isAdopted": false
 	},
 	{
-		"name": "taza",
+		"name": "cafetera",
 		"precio": "500",
 		"color": "brown",
-		"image": "1659364342467-favicon.ico",
-		"id": 3,
+		"image": "1659500230728-favicon.ico",
+		"id": 2,
 		"isAdopted": false
 	},
 	{
 		"name": "taza",
 		"precio": "50",
-		"color": "brown",
-		"image": "1659364960333-favicon.ico",
-		"id": 4,
+		"color": "black and yellow",
+		"image": "1659500496624-favicon.ico",
+		"id": 3,
 		"isAdopted": false
 	}
 ]

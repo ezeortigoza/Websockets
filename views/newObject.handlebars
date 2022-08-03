@@ -18,11 +18,11 @@
 <table class="table table-bordered table-striped text-center mt-4" >
     {{#each object}}
  <thead>
-    <tr>
-      <th scope="col">Nombre: {{this.name}}</th>
-      <th scope="col">Precio: {{this.precio}}</th>
-      <th scope="col">Color: {{this.color}}</th>
-      <th scope="col"> Imagen: <img scope="row" src="http://localhost:8080/img/{{this.image}}"></th>
+    <tr id="form">
+      <th id="nombre" scope="col">Nombre: {{this.name}}</th>
+      <th id="price" scope="col">Precio: {{this.precio}}</th>
+      <th id="color" scope="col">Color: {{this.color}}</th>
+      <th id="img" scope="col"> Imagen: <img scope="row" src="http://localhost:8080/img/{{this.image}}"></th>
     </tr>
  </thead>
   <tbody>

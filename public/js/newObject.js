@@ -1,3 +1,4 @@
+
  let username;
  let socket = io({
     autoConnect:false
@@ -22,16 +23,22 @@ const objectForm = document.getElementById('objectForm');
 objectForm.addEventListener('submit', evt =>{
     evt.preventDefault();
     const formData = new FormData(objectForm);
-    if(evt.click==='submit'){
-        socket.emit('products',objectForm.value)
-        objectForm.value='';
-        }
-     fetch('/api/object',{
-        method:"POST",
-        body:formData
-    }).then(result=>result.json()).then(json=>console.log(json)); 
+        fetch('/api/object',{
+            method:"POST",
+            body:formData,
+            header:{
+                'Content-Type' : 'application/json'
+            }
+        }).then(result=>result.json()).then(json=>console.log(json)); 
+        socket.emit('products', formData=>{
+           let form = document.getElementById('form');
+           formData.forEach(info=>{
+            form = `${info.name}  ${info.precio}`
+          })
+          form.innerHTML = info;
+    }) 
+    })
 
-})
 const chatBox = document.getElementById('chatBox');
 chatBox.addEventListener('keyup',evt=>{
     if(evt.key==='Enter'){
