@@ -9,8 +9,10 @@ const objectService = new objectContenedor();
 
 
 router.post('/',uploader.single('image'),async(req,res)=>{
-    const {name,precio,color} = req.body;
-    console.log(req.body);
+    console.log('post :/api/object');
+    //console.log('req : ', req);
+    const {name,precio,color, image} = req.body;
+    console.log('req.body : ', req.body);
      if(!req.file) res.status(500).send({status: 'error', error:'No se pudo cargar el archivo'});
     if(!name||!precio||!color) return res.status(400).send({status: "error", error:"Incomplete values"});
     let object = {

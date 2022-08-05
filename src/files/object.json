@@ -1,0 +1,11 @@
+[
+	{
+		"name": "guantes",
+		"precio": "123",
+		"color": "blue",
+		"image": "1658764366943-favicon.ico",
+		"id": 1,
+		"isAdopted": false
+	}
+	
+]

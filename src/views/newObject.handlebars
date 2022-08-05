@@ -10,7 +10,7 @@
         <label for="color">Color</label>
         <input id="color" name="color">
         <label for="image">Image</label>
-        <input type="file" id="image" name="image">
+        <input type="file" id="image" name="image" accept="image/gif, image/jpg, image/jpeg, image/png">
         <input type="submit">
     </form>
 </div>
@@ -22,7 +22,7 @@
       <th id="nombre" scope="col">Nombre: {{this.name}}</th>
       <th id="price" scope="col">Precio: {{this.precio}}</th>
       <th id="color" scope="col">Color: {{this.color}}</th>
-      <th id="img" scope="col"> Imagen: <img scope="row" src="http://localhost:8080/img/{{this.image}}"></th>
+      <th id="img" scope="col"> Imagen: <img scope="row" src="http://localhost:8080/img/{{this.image}}" multiple ></th>
     </tr>
  </thead>
   <tbody>
