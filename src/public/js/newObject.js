@@ -24,12 +24,8 @@ const objectForm = document.getElementById('objectForm');
 
 objectForm.addEventListener('submit', evt =>{
     evt.preventDefault();
-    const newProduct = {
-        name: objectForm[0][0].value,
-        precio: objectForm[0][1].value,
-        //thumbnail: objectForm[0][2].value,
-      }
-    /* const formData = new FormData(objectForm);
+    
+     const formData = new FormData(objectForm);
  
          fetch('/api/object',{
              method:"POST",
@@ -39,7 +35,23 @@ objectForm.addEventListener('submit', evt =>{
              }
          })
          .then(result=>result.json())
-        .then(json=>console.log(json))  */
+        .then(json=>console.log(json))  
+
+        socket.emit('products', formData,
+            function renderProducts(data){
+                const html = data
+                .map((elem)=>{
+                    return `<tr>
+                    <td>${elem.name}</td>
+                    <td>${elem.precio}</td>
+                    <td>${elem.color}</td>
+                    <td><img src= "http://localhost:8080/img/${elem.image}"</td>
+                    </tr>`
+                })
+                .join("");
+                document.getElementById('form').innerHTML = html;
+            }
+        )
 
     /* 
          .then(
@@ -62,7 +74,7 @@ objectForm.addEventListener('submit', evt =>{
            })
            form.innerHTML = info;
          })  */
-        const ourFile = document.getElementById('image').files[0];
+       /*  const ourFile = document.getElementById('image').files[0];
         const reader = new FileReader();
         reader.onloadend = function() {
             socket.emit("addNewProduct", {data:reader.result, filename: ourFile.name,
@@ -81,7 +93,7 @@ objectForm.addEventListener('submit', evt =>{
           const html = compiledHbsTemplate({ allProducts })
           productViewContainer.empty().append(html)
         }
-  
+   */
 
 })
 

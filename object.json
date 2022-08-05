@@ -1,0 +1,21 @@
+[
+	{
+		"name": "guantes",
+		"precio": "123",
+		"color": "blue",
+		"image": "1658764366943-favicon.ico",
+		"id": 1,
+		"isAdopted": false
+	},
+	{
+		"name": "taza",
+		"precio": "123",
+		"color": "brown",
+		"image": "1659670062183-404.png",
+		"id": 2,
+		"isAdopted": false
+	},
+	{
+		"id": 3
+	}
+]

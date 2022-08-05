@@ -35,46 +35,16 @@ io.on('connection',socket=>{
         log.push(data);
         io.emit('log',log);
     })
-    socket.on('productListRequest',async (data)=>{
+  /*   socket.on('productListRequest',async (data)=>{
         const objectService = await objectContenedor.getAll()
         socket.emit('updateProductList', objectService)
+    }) */
+    socket.on('products',async (data)=>{
+        const objectService = new objectContenedor()
+        await objectService.save(data);
+        await objectService.getAll(data);
     })
-
-
-    socket.on('addNewProduct', async (newProduct) => {
-        console.log('>>> addNewProduct')
-        console.log('addNewProduct : ', newProduct)
-
-
-
-        const FileName = newProduct.filename;
-        console.log(`FileName : `, FileName )
-        // const splitted = newProduct.data.split(';base64,');
-        // const format = splitted[0].split('/')[1];
-        // console.log(`format : ${format}`)
-
-        const file = __dirname + `/public/img/${Date.now()}-${FileName}`;
-        console.log(`file : ${file}`)
-        if (newProduct.title.length > 25  ){
-            socket.emit('error', 'Title must be less than 25 characters')
-          }
-          else if (newProduct.price > 0 && newProduct.price <= 100000){
-            socket.emit('error', 'Price must be between 0 and 100000')
-          }else{
-    
-            let newProductWithOutImage = {
-              title: newProduct.title, 
-              price: newProduct.price, 
-              thumbnail: `${host}/img/${FileName}`
-            }
-            fs.writeFileSync(file, new Buffer(newProduct.data.split(';base64,')[1], 'base64'))
-       await object.addNewProduct(newProductWithOutImage)
-        const allProducts = await objectContenedor.getAll()
-        io.sockets.emit('updateProductList', allProducts)
-        }
             
 
     })
 
-
-})
